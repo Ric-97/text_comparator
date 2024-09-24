@@ -28,9 +28,10 @@ if uploaded_file is not None:
     with col1:
         id_1 = st.selectbox("Select key for the article 1", options=check_content_df['key'])
         selected_id_1_title = check_content_df.loc[check_content_df['key'] == id_1, 'title'].values[0]
+        selected_id_1_category = check_content_df.loc[check_content_df['key'] == id_1, 'category'].values[0]
         selected_id_1 = check_content_df.loc[check_content_df['key'] == id_1, 'text'].values[0]
         selected_id_1_processed = check_content_df.loc[check_content_df['key'] == id_1, 'processed_text'].values[0]
-        st.write(f'Title: ****{selected_id_1_title}****')
+        st.write(f'Title: ****{selected_id_1_title}****  Category: ****{selected_id_1_category}****')
         text1 = st.text_area("Text 1", value=selected_id_1,height=600)
         if not processing:
             text1_processed = st.text_area("Text 1 processed", value=selected_id_1_processed)
@@ -38,9 +39,10 @@ if uploaded_file is not None:
         if not processing:
             id_2 = st.selectbox("Select key for the article 2", options=check_content_df['key'])
             selected_id_2_title = check_content_df.loc[check_content_df['key'] == id_2, 'title'].values[0]
+            selected_id_2_category = check_content_df.loc[check_content_df['key'] == id_2, 'category'].values[0]
             selected_id_2 = check_content_df.loc[check_content_df['key'] == id_2, 'text'].values[0]
             selected_id_2_processed = check_content_df.loc[check_content_df['key'] == id_2, 'processed_text'].values[0]
-            st.write(f'Title: ****{selected_id_2_title}****')
+            st.write(f'Title: ****{selected_id_2_title}****  Category: ****{selected_id_2_category}****')
             text2 = st.text_area("Text 2", value=selected_id_2, height=600)
             text2_processed = st.text_area("Text 2 processed", value=selected_id_2_processed)
         else:
